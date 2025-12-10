@@ -1,0 +1,381 @@
+@import url("https://fonts.googleapis.com/css2?family=Allura&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* General Styles*/
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  background-color: var(--bg-color);
+  overflow: hidden;
+}
+
+#background {
+  height: 100vh;
+  width: 100%;
+  background-position: center center;
+  background-image: url(bg.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Color Variables */
+
+:root {
+  --bg-color: #f7f6e0;
+  --black-color: #000000;
+  --white-color: #ffffff;
+  --main-color: #9e2b07;
+  --brown-color: #8c5c2f;
+  --light-color: #c87a19;
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --h1-font: "Allura", cursive;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  right: 10%;
+  width: 80%;
+  z-index: 1000;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-content: space-between;
+  align-items: center;
+  transition: all 0.6s ease;
+}
+
+.ri-star-fill {
+  font-size: 9rem;
+  color: yellow;
+}
+
+.logo img {
+  width: 40%;
+}
+
+.navbar-container {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+}
+.navbar.show {
+  display: flex;
+}
+.navbar a {
+  position: relative;
+  text-decoration: none;
+  color: var(--brown-color);
+  font-size: 2rem;
+  padding: 8px 0;
+  transition: color 0.3s;
+  justify-content: center;
+}
+
+.navbar a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--main-color);
+  transition: width 0.3s ease;
+}
+
+.navbar a:hover::before {
+  width: 100%;
+}
+
+.navbar a:hover {
+  color: var(--main-color);
+}
+
+.social-icons {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  justify-self: end;
+  gap: 10px;
+}
+
+.social-icons a {
+  height: 45px;
+  width: 45px;
+  align-items: center;
+  background-color: var(--main-color);
+  color: var(--bg-color);
+  border-radius: 10px;
+  font-size: 24px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.social-icons a:hover {
+  background-color: var(--white-color);
+}
+
+.menu-icon {
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+}
+
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 50px;
+  height: 100vh;
+  position: relative;
+}
+
+.hero .content {
+  max-width: 500px;
+  margin-top: 70px;
+}
+
+.hero h1 {
+  font-size: 10rem;
+  color: var(--main-color);
+  font-weight: 300;
+  font-family: var(--h1-font);
+  line-height: 1;
+}
+
+.hero h3 {
+  margin-top: 15px;
+  font-size: 1.7rem;
+  color: var(--main-color);
+  text-transform: uppercase;
+}
+
+.hero h5 {
+  color: var(--brown-color);
+  margin-top: -30px;
+  padding-left: 280px;
+  font-size: 1rem;
+  letter-spacing: 0.4rem;
+  text-transform: uppercase;
+}
+
+.hero p {
+  color: var(--brown-color);
+  margin: 20px 0;
+}
+
+.hero button {
+  color: var(--main-color);
+  background-color: transparent;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-right: 10px;
+  position: relative;
+  transition: color 0.4 ease;
+}
+
+.hero button::before {
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: var(--main-color);
+  position: absolute;
+  transition: width 0.4s ease;
+  z-index: 0;
+}
+
+.hero button:hover::before {
+  width: 100%;
+}
+
+.hero button:hover {
+  color: var(--white-color);
+}
+
+.hero button span {
+  position: relative;
+  z-index: 1;
+}
+
+.falling-leaves {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.leaf {
+  top: -10%;
+  position: absolute;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  animation: fall liner infinite;
+  transform-origin: top center;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  body {
+    background-size: contain;
+    background-position: bottom;
+  }
+}
+
+.navbar a {
+  font-size: 1.9rem;
+  margin: 15px 0;
+  color: var(--black-color);
+  text-align: center;
+}
+
+.navbar.active {
+  right: 0;
+}
+
+.menu-icon {
+  display: block;
+  height: 40px;
+  width: 40px;
+  background-color: var(--main-color);
+  color: var(--bg-color);
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.hero {
+  padding: 300px;
+  height: 100vh;
+  flex-direction: column;
+}
+
+section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section h2 {
+  font-size: 8em;
+}
+
+section .falling-leaves {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+section .falling-leaves div {
+  position: absolute;
+  display: block;
+}
+
+section .falling-leaves div:nth-child(1) {
+  left: 20%;
+  animation: animate 15s linear infinite;
+  animation-delay: -7s;
+}
+
+section .falling-leaves div:nth-child(2) {
+  left: 50%;
+  animation: animate 20s linear infinite;
+  animation-delay: -5s;
+}
+
+section .falling-leaves div:nth-child(3) {
+  left: 70%;
+  animation: animate 20s linear infinite;
+  animation-delay: 0s;
+}
+
+section .falling-leaves div:nth-child(4) {
+  left: 0%;
+  animation: animate 15s linear infinite;
+  animation-delay: -5s;
+}
+
+section .falling-leaves div:nth-child(5) {
+  left: 85%;
+  animation: animate 18s linear infinite;
+  animation-delay: -10s;
+}
+
+section .falling-leaves div:nth-child(6) {
+  left: 0%;
+  animation: animate 12s linear infinite;
+}
+
+section .falling-leaves div:nth-child(7) {
+  left: 15%;
+  animation: animate 18s linear infinite;
+  animation-delay: -10s;
+}
+
+section .falling-leaves div:nth-child(8) {
+  left: 60%;
+  animation: animate 15s linear infinite;
+  animation-delay: -10s;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0;
+    top: -10%;
+    transform: translateX(20px) rotate(0deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  20% {
+    transform: translateX(-20px) rotate(45deg);
+  }
+  40% {
+    transform: translateX(-20px) rotate(90deg);
+  }
+  60% {
+    transform: translateX(20px) rotate(180deg);
+  }
+  80% {
+    transform: translateX(-20px) rotate(180deg);
+  }
+  100% {
+    top: 110%;
+    transform: translateX(-20px) rotate(225deg);
+  }
+}
